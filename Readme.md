@@ -13,7 +13,7 @@ Avant de commencer, assure-toi d'avoir Python 3.6+ installé sur ton système.
 1. Clone ce dépôt sur ton ordinateur :
 
    ```bash
-   git clone https://github.com/ton-utilisateur/hero-game.git
+   git clone https://github.com/floneema69/Hero_game.git
     ```
       ```bash
 cd hero-game
@@ -32,7 +32,7 @@ pip install .
 1. Clone ce dépôt sur ton ordinateur :
 
    ```bash
-   git clone https://github.com/ton-utilisateur/hero-game.git
+   git clone https://github.com/floneema69/Hero_game.git
     ```
       ```bash
    cd hero-game
