@@ -16,17 +16,17 @@ Avant de commencer, assure-toi d'avoir Python 3.6+ installé sur ton système.
    git clone https://github.com/floneema69/Hero_game.git
     ```
       ```bash
-cd hero-game
+    cd hero-game
     ```
       ```bash
-python3 -m venv venv
+    python3 -m venv venv
     ```
       ```bash
-source venv/bin/activate
+    source venv/bin/activate
     ```
-        ```bash
-pip install .
-    ```
+```bash
+            pip install .
+  ```
 ### Sur Windows
 
 1. Clone ce dépôt sur ton ordinateur :
