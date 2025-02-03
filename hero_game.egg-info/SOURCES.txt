@@ -1,0 +1,7 @@
+create_hero.py
+pyproject.toml
+hero_game.egg-info/PKG-INFO
+hero_game.egg-info/SOURCES.txt
+hero_game.egg-info/dependency_links.txt
+hero_game.egg-info/requires.txt
+hero_game.egg-info/top_level.txt

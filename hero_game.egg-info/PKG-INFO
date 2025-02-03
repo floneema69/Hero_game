@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: hero-game
+Version: 1.0.0
+Summary: Jeu où tu crées un héros avec des attributs générés ou personnalisés.
+Author-email: FloFLo <FlorianNEEMA@gmail.com>
+Description-Content-Type: text/markdown
+Requires-Dist: faker<19.0.0,>=18.0.0
+Requires-Dist: pyxel<2.0.0,>=1.9.0
