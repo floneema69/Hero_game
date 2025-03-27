@@ -1,5 +1,7 @@
 create_hero.py
 pyproject.toml
+Test/__init__.py
+Test/test.py
 hero_game.egg-info/PKG-INFO
 hero_game.egg-info/SOURCES.txt
 hero_game.egg-info/dependency_links.txt
