@@ -24,6 +24,9 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.11.5"
+
+    - name : Install lib
+      run: apt install libsdsl2-dev -y
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
