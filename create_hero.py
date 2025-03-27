@@ -17,9 +17,11 @@ def to_string(p1):
     print(f"Votre nom : {p1.name}, votre age : {p1.age},vos hp : {p1.hp}, votre genre : {p1.genre}, votre couleur de cheuveux : {p1.hair}, votre inventaire : {p1.inventaire}")
 
 def get_name():
+    print('Créez votre propre nom (name) ou générez (r):')
+    x = input().strip().lower()
+    return get_name_action(x)
+def get_name_action(x):
     try:
-        print('Créez votre propre nom (name) ou générez (r):')
-        x = input().strip().lower()
         if x == 'r':
             return fake.name()
         elif x == 'name':
@@ -31,9 +33,11 @@ def get_name():
         return get_name()
 
 def get_color():
+    print("Entrez un nombre pour la couleur (0-15) ou générez (r) :")
+    x = input().strip().lower()
+    return get_color_action(x)
+def get_color_action(x):
     try:
-        print("Entrez un nombre pour la couleur (0-15) ou générez (r) :")
-        x = input().strip().lower()
         if x == 'r':
             return random.randint(0, 15)
         else:
@@ -48,56 +52,54 @@ def get_color():
     except Exception as e:
         print(f"Erreur inattendue : {e}")
         return get_color()
-
 def get_age():
+    print("Votre propre âge (age) ou générez (r):")
+    age_generate = input().strip().lower()
+    return get_age_action(age_generate)
+def get_age_action(x):
     try:
-        print("Votre propre âge (age) ou générez (r):")
-        age_generate = input().strip().lower()
-        if age_generate == 'age':
+        if x == 'r':
+            return random.randint(16, 130)
+        elif x == 'age':
             age = int(input("Votre âge : ").strip())
             if age < 16 or age > 130:
                 raise ValueError("L'âge doit être compris entre 16 et 130 ans.")
             return age
-        elif age_generate == 'r':
-            return random.randrange(16, 130)
         else:
             raise ValueError("Choix invalide. Veuillez entrer 'age' ou 'r'.")
-    except ValueError as e:
+    except Exception as e:
         print(f"Erreur : {e}")
         return get_age()
-    except Exception as e:
-        print(f"Erreur inattendue : {e}")
-        return get_age()
-
 def get_genre():
+    print("Votre propre genre (genre) ou générez (r):")
+    genre_generate = input().strip().lower()
+    return get_genre_action(genre_generate)
+def get_genre_action(x):
     try:
-        print("Votre propre genre (genre) ou générez (r):")
-        genre_generate = input().strip().lower()
-        if genre_generate == 'genre':
-            genre = input("Votre genre : ").strip()
-            if genre not in ["Homme", "Femme", "Autre"]:
-                raise ValueError("Le genre doit être 'Homme', 'Femme' ou 'Autre'.")
-            return genre
-        elif genre_generate == 'r':
+        if x == 'r':
             mylist = ["Homme", "Femme", "Autre"]
             return random.choice(mylist)
-        else:
-            raise ValueError("Choix invalide. Veuillez entrer 'genre' ou 'r'.")
-    except Exception as e:
+        elif x == 'genre':
+            genre = input("Votre genre : ").strip().lower()
+            if genre not in ["homme", "femme", "autre"]:
+                raise ValueError("Le genre doit être 'homme', 'femme' ou 'autre'.")
+            return genre
+    except ValueError as e:
         print(f"Erreur : {e}")
         return get_genre()
 def get_hp():
+    print("Votre propre hp (hp) ou generez (r):")
+    hp_generate = input().strip().lower()
+    return get_hp_action(hp_generate)
+def get_hp_action(x):
     try:
-        print("Votre propre hp (hp) ou generez (r):")
-        hp_generate = input().strip().lower()
-        if hp_generate == 'hp':
-            hp = int(input("Votre hp : ").strip())
-            if hp <0 or hp > 100:
-                 raise ValueError("Les HP doit être compris entre 0 et 100 ans.")
-        elif hp_generate == 'r':
+        if x == 'r':
             return random.randrange(0, 100)
-        else:
-            raise ValueError("Choix invalide. Veuillez entrer 'HP' ou 'r'.")
+        elif x == 'hp':
+            hp = int(x)
+            if hp < 0 or hp > 100:
+                raise ValueError("Les HP doit être compris entre 0 et 100 ans.")
+            return hp
     except ValueError as e:
         print(f"Erreur : {e}")
         return get_hp()
@@ -106,25 +108,29 @@ def get_hp():
         return get_hp()
 def get_inventaire():
     inventaire = []
+    continu = True
+    while continu:
+        print("Votre propre inventaire yes or no :")
+        invetaire_generate = input().strip().lower()
+        inventaire, continu = get_inventaire_action(inventaire, invetaire_generate)
+    return inventaire
+
+def get_inventaire_action(inventaire, x):
     try:
-        continu = True
-        while continu:
-            print("Votre propre inventaire yes or no :")
-            invetaire_generate = input().strip().lower()
-            if (invetaire_generate == 'yes'):
-                moy = input("Votre inventaire : ")
-                inventaire.append(moy)
-            elif (invetaire_generate == 'no'):
-                continu = False
-                return inventaire
-            else:
-                raise ValueError("Votre inventaire invalide")
+        if x == 'yes':
+            moy = input("Votre inventaire : ")
+            inventaire.append(moy)
+            return inventaire, True
+        elif x == 'no':
+            return inventaire, False
+        else:
+            raise ValueError("Votre inventaire invalide")
     except ValueError as e:
         print(f"Erreur : {e}")
-        return get_inventaire()
+        return inventaire, True
     except Exception as e:
         print(f"get_inventaire : {e}")
-        return get_inventaire()
+        return inventaire, True
 
 
 pyxel.init(160, 120)
